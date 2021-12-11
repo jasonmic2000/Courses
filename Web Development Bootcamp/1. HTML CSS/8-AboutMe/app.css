@@ -1,0 +1,32 @@
+/*	selector {
+
+		}*/
+
+h1 {
+			color: #FF1493;
+			border-color: purple;
+			border-width: 5px;
+			border-style: dashed;
+	}
+
+h2 {
+		color: rgba(11, 99, 150, .2);
+		border-width: 2px;
+		border-color: orange;
+		border-style: solid;
+}
+
+h4 {
+		background: rgb(255,100,80);
+		color: rgb(0,200,255);
+}
+
+body {
+		background: url(https://img.freepik.com/free-vector/seamless-pattern_1159-5086.jpg?size=626&ext=jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+}
+
+li {
+		color: orange;
+	}

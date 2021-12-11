@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Website</title>
+</head>
+<body>
+	<h1>Register</h1>
+	<form>
+		<p>
+			<label for="firstname">First Name: </label>
+			<input type="text" id="firstname" placeholder="John" required>
+
+			<label for="lastname">Last Name: </label>
+			<input type="text" id="lastname" placeholder="Smith" required>
+		</p>
+		
+		<p>	
+			<label for="male">Male</label>
+			<input type="radio" id="male" name="gender">
+
+			<label for="female">Female</label>
+			<input type="radio" name="gender" id="female">
+
+			<label for="other">Other</label>
+			<input type="radio" name="gender" id="other">
+		</p>
+		<p>	
+			<label for="username">Email: </label>
+			<input type="email" id="username" placeholder="your email">
+
+			<label for="password">Password: </label>
+			<input type="password" minlength="5" maxlength="10" id="password" placeholder="your password">
+		</p>
+			
+		<p>
+			Birthday
+			<select name="Month">
+				<option>Month</option>
+				<option>January</option>
+				<option>February</option>
+				<option>March</option>
+				<option>April</option>
+				<option>May</option>
+				<option>June</option>
+				<option>July</option>
+				<option>August</option>
+				<option>September</option>
+				<option>October</option>
+				<option>November</option>
+				<option>December</option>
+			</select>
+			<select name="Day">
+				<option>Day</option>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+			<select name="Year">
+				<option>Year</option>
+				<option>1999</option>
+				<option>2000</option>
+				<option>2001</option>
+			</select>
+		</p>
+
+		<label for="checkbox">I agree to the terms and conditions</label>
+		<input type="checkbox" id="checkbox">
+
+		<button>Submit</button>
+	</form>
+</body>
+</html>

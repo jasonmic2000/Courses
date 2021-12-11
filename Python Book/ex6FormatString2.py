@@ -1,0 +1,23 @@
+#Initial statement
+types_of_people = 10
+x = f"There are {types_of_people} types_of_people"
+#Joke variables
+binary = "binary"
+do_not = "don't"
+y = f"Those who know {binary} and those who {do_not}"
+#Print joke the first time
+print(x)
+print(y)
+#Printing joke again because it's a terrible pun
+print(f"I said: {x}")
+print(f"I also said: {y}")
+#Variable to clarify joke wasn't good
+hilarious = True
+joke_evaluation = "Isn't that joke so funny?! {}"
+#Printing evaluation of joke quality as False
+print(joke_evaluation.format(hilarious))
+#Initializing left and right side of long string
+w = "This is the left side of..."
+e = "a string with a right side."
+#Printing long string
+print(w + e)
