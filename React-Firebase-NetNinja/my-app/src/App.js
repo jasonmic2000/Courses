@@ -26,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <Title title="Events in Your Area" subtitle={subtitle} />
+      <Title title="Another Title" subtitle="Another Subtitle" />
 
       {showEvents && (
         <div>
