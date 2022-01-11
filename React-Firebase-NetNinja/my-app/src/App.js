@@ -2,8 +2,10 @@ import './App.css';
 import React, { useState } from 'react'
 import Title from './components/Title'
 import Modal from './components/Modal'
+import EventList from './components/EventList';
 
 function App() {
+  const [showModal, setShowModal] = useState(true)
   const [showEvents, setShowEvents] = useState(true)
   const [events, setEvents] = useState([
     {title: "mario's birthday bash", id: 1},
@@ -11,7 +13,7 @@ function App() {
     {title: "race on moo moo farm", id: 3}
   ])
 
-  console.log(showEvents)
+  console.log(showModal)
 
   const handleClick = (id) => {
     setEvents((prevEvents) => {
@@ -22,11 +24,15 @@ function App() {
     console.log(id)
   }
 
+  const handleClose = () => {
+    setShowModal((prevState) => !prevState);
+  }
+
   const subtitle = "All the latest events in Marioland"
 
   return (
     <div className="App">
-      <Modal />
+      
       <Title title="Events in Your Area" subtitle={subtitle} />
 
       {showEvents && (
@@ -40,24 +46,13 @@ function App() {
           <button onClick={() => setShowEvents(true)}>show events</button>
         </div>
       )}
-      {showEvents && events.map((event, index) => (
-        <React.Fragment key={event.id}>
-          <h2>{index} - {event.title}</h2>
-          <button onClick={() => handleClick(event.id)}>Delete event</button>
-        </React.Fragment>
-      ))}
+      {showEvents && <EventList events={events} handleClick={handleClick}/>}
 
-      {/* <Modal>
-        <h2>10% off Coupon Code!!</h2>
-        <p>Use the code POTATOES at checkout.</p>
-      </Modal> */}
-
-      <Modal>
+      {showModal && <Modal handleClose={handleClose}>
         <h2>Terms and Conditions</h2>
-        <p>Laboris consectetur eiusmod occaecat tempor do in aute esse eu quis velit. Sit ea exercitation dolor do qui cillum non. Do ex elit laborum quis duis veniam et elit ad est anim. Cupidatat laboris adipisicing non non commodo proident eiusmod ullamco nostrud consequat. Dolor laborum reprehenderit anim ea anim commodo proident veniam irure elit ullamco excepteur nisi. Do aliqua tempor amet ipsum non et consequat culpa do. Incididunt do magna aliqua aliqua adipisicing proident aute sunt non ut anim nostrud in.</p>
-        <a href="#">find out more...</a>
+        <p>Proident est sunt adipisicing magna veniam elit.Sint enim officia irure sit nulla laboris.Labore proident mollit quis laboris ad ipsum duis fugiat ad laboris exercitation excepteur minim et.</p>
+      </Modal>}
 
-      </Modal>
     </div>
   );
 }
