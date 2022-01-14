@@ -48,10 +48,14 @@ function App() {
       )}
       {showEvents && <EventList events={events} handleClick={handleClick}/>}
 
-      {showModal && <Modal handleClose={handleClose}>
+      {showModal && <Modal handleClose={handleClose} isSalesModal={false}>
         <h2>Terms and Conditions</h2>
         <p>Proident est sunt adipisicing magna veniam elit.Sint enim officia irure sit nulla laboris.Labore proident mollit quis laboris ad ipsum duis fugiat ad laboris exercitation excepteur minim et.</p>
       </Modal>}
+
+      <div>
+        <button onClick={() => setShowModal(true)}>Show Modal</button>
+      </div>
 
     </div>
   );
