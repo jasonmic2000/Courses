@@ -1,16 +1,21 @@
 import './App.css';
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Title from './components/Title'
+import Modal from './components/Modal'
+import EventList from './components/EventList';
+import NewEventForm from './components/NewEventForm';
 
 function App() {
+  const [showModal, setShowModal] = useState(true)
   const [showEvents, setShowEvents] = useState(true)
-  const [events, setEvents] = useState([
-    {title: "mario's birthday bash", id: 1},
-    {title: "bowser's live stream", id: 2},
-    {title: "race on moo moo farm", id: 3}
-  ])
+  const [events, setEvents] = useState([])
 
-  console.log(showEvents)
+  const addEvent = (event) => {
+    setEvents((prevEvents) => {
+      return [...prevEvents, event]
+    })
+    setShowModal(false)
+  }
 
   const handleClick = (id) => {
     setEvents((prevEvents) => {
@@ -21,9 +26,14 @@ function App() {
     console.log(id)
   }
 
+
+
+  const subtitle = "All the latest events in Marioland"
+
   return (
     <div className="App">
-      <Title />
+      
+      <Title title="Events in Your Area" subtitle={subtitle} />
 
       {showEvents && (
         <div>
@@ -36,12 +46,16 @@ function App() {
           <button onClick={() => setShowEvents(true)}>show events</button>
         </div>
       )}
-      {showEvents && events.map((event, index) => (
-        <div key={event.id}>
-          <h2>{index} - {event.title}</h2>
-          <button onClick={() => handleClick(event.id)}>Delete event</button>
-        </div>
-      ))}
+      {showEvents && <EventList events={events} handleClick={handleClick}/>}
+
+      {showModal && <Modal isSalesModal={true}>
+        <NewEventForm addEvent={addEvent}/>
+      </Modal>}
+
+      <div>
+        <button onClick={() => setShowModal(true)}>Add New Event</button>
+      </div>
+
     </div>
   );
 }
